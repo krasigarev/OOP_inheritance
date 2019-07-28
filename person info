@@ -1,0 +1,85 @@
+class Person:
+    def __init__(self, first_name: str, last_name: str):
+        self.first_name = first_name
+        self.last_name = last_name
+
+    def name_info(self):
+        return f"{self.first_name} {self.last_name}"
+
+
+class Employee(Person):
+    def __init__(self, first_name: str, last_name: str, salary: int, working_day: int):
+        Person.__init__(self, first_name, last_name)
+        self.salary = salary
+        self.working_day = working_day
+
+    def employee_info(self):
+        return f"{self.first_name} {self.last_name}\n-> Salary: {self.salary}\n-> Working_day: {self.working_day}"
+
+
+class Manager(Employee):
+    def __init__(self, first_name: str, last_name: str, salary: int, working_day: int, budget: int):
+        Employee.__init__(self, first_name, last_name, salary, working_day)
+        self.budget = budget
+
+    def manager_info(self):
+        return f"{self.first_name} {self.last_name}\n-> Salary: {self.salary}\n-> Working_day: {self.working_day}\n-> budget: {self.budget}"
+
+
+class Student(Person):
+    def __init__(self, first_name: str, last_name: str, faculty_number: str):
+        Person.__init__(self, first_name, last_name)
+        self.faculty_number = faculty_number
+
+    def student_info(self):
+        return f"{self.first_name} {self.last_name}\n-> Faculty Number: {self.faculty_number}"
+
+
+first_name_1 = input()
+last_name_1 = input()
+salary_1 = int(input())
+working_day_1 = int(input())
+budget_1 = int(input())
+faculty_number_1 = input()
+
+print("------------- Student ---------------------")
+
+a_1 = Student(first_name_1, last_name_1, faculty_number_1)
+print(a_1.faculty_number)
+print(a_1.first_name)
+print(a_1.last_name)
+
+print(f" \n **************** \n")
+
+print(a_1.student_info())
+
+print(f" \n ****************\n")
+
+print("------------- Manager ---------------------")
+
+b_1 = Manager(first_name_1, last_name_1, salary_1, working_day_1, budget_1)
+print(b_1.first_name)
+print(b_1.last_name)
+print(b_1.salary)
+print(b_1.working_day)
+print(b_1.budget)
+
+print(f" \n **************** \n")
+
+print(b_1.manager_info())
+
+print(f" \n ****************\n")
+
+print("--------------- Employee -------------------")
+
+c_1 = Employee(first_name_1, last_name_1, salary_1, working_day_1)
+print(c_1.first_name)
+print(c_1.last_name)
+print(c_1.salary)
+print(c_1.working_day)
+
+print(f" \n **************** \n")
+
+print(c_1.employee_info())
+
+print(f" \n ****************\n")
