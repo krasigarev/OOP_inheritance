@@ -1,0 +1,53 @@
+from abc import ABC, abstractmethod
+
+class Human:
+    def __init__(self):
+        pass
+    
+    def make_sound(self):
+        print("sound =======")
+
+
+class Person(ABC):
+
+    @abstractmethod
+    def __init__(self, name: str, last_name: str):
+        self.name = name
+        self.last_name = last_name
+
+    def name_info(self):
+        return "Name is: {0} {1}".format(self.name, self.last_name)
+
+
+class Employee(Person, Human):
+    def __init__(self, name: str, last_name: str, staff: str):
+        Person.__init__(self, name, last_name)
+        Human.make_sound(self)
+        self.staff = staff
+
+
+    def go_to_work(self):
+        return f"working ===="
+
+    def name_info(self):
+        Person.name_info(self)
+
+class Manager(Employee):
+    def __init__(self, name: str, last_name: str, staff: str, budget: int):
+        Employee.__init__(self, name, last_name, staff)
+        self.budget = budget
+
+
+class Student(Person):
+    def __init__(self, name: str, last_name: str, faculty_number: str, age: int):
+        Person.__init__(self, name, last_name)
+        self.faculty_number = faculty_number
+        self.age = age
+
+    
+
+p = Employee("krasi", "Garev", "fgdsfds")
+employee = Employee("ines", "Ivanova", "dfdsf")
+print(p.name)
+print(employee.name)
+
